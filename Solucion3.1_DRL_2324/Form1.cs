@@ -18,17 +18,20 @@ namespace Solucion3._1_DRL_2324
             // telegrama urgente?
             if (radioButton1.Checked)
                 tipoTelegrama = 'u';
+            else
+                tipoTelegrama = 'o';
 
             if (radioButton2.Checked)
                 tipoTelegrama = 'o';
             //Obtengo el número de palabras que forma el telegrama
-            numPalabras = textoTelegrama.Length;
+            char[] delimitadores = new char[] { ' ', '\r', '\n' };
+            numPalabras = textoTelegrama.Split(delimitadores, StringSplitOptions.RemoveEmptyEntries).Length;
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;
                 else
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + 0.5 * (numPalabras - 10);
             else
             //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
