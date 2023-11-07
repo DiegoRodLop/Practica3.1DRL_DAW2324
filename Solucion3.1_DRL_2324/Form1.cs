@@ -16,8 +16,11 @@ namespace Solucion3._1_DRL_2324
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
-            if (cbUrgente.Checked)
+            if (radioButton1.Checked)
                 tipoTelegrama = 'u';
+
+            if (radioButton2.Checked)
+                tipoTelegrama = 'o';
             //Obtengo el número de palabras que forma el telegrama
             numPalabras = textoTelegrama.Length;
             //Si el telegrama es ordinario
